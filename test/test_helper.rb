@@ -5,6 +5,11 @@ require 'minitest/autorun'
 require 'minitest/spec'
 require 'rails/test_help'
 
+require 'turn'
+# :outline, :progress, :dotted, :pretty, :marshal, :cue
+Turn.config.format = :outline
+Turn.config.natural = true
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 
