@@ -18,4 +18,5 @@ end
 
 group :test do
   gem 'turn'
+  gem 'minifacture'
 end

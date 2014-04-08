@@ -4,6 +4,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'minitest/autorun'
 require 'minitest/spec'
 require 'rails/test_help'
+require 'factories'
 
 require 'turn'
 # :outline, :progress, :dotted, :pretty, :marshal, :cue

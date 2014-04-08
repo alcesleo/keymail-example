@@ -3,7 +3,7 @@ require 'test_helper'
 describe User do
 
   it 'must have an email' do
-    user = User.new(email: nil)
+    user = Factory.build :user, email: nil
 
     user.must_be :invalid?
     user.errors[:email].must_be :present?

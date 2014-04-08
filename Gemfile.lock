@@ -37,6 +37,8 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.25.1)
+    minifacture (1.2.2)
+      activesupport (>= 2.2)
     minitest (4.7.5)
     multi_json (1.9.2)
     polyglot (0.3.4)
@@ -91,6 +93,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  minifacture
   minitest
   rails (= 4.0.4)
   sass-rails (~> 4.0.2)
