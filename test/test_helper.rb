@@ -16,3 +16,11 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end
+
+module Minitest::Assertions
+  def assert_has_invalid(field, model)
+    model.must_be :invalid?
+    model.errors[field].must_be :present?
+  end
+end
+ActiveRecord::Base.infect_an_assertion :assert_has_invalid, :must_have_invalid
