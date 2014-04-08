@@ -1,3 +1,3 @@
 class User < ActiveRecord::Base
-  validates_presence_of :email
+  validates :email, presence: true, uniqueness: true
 end
