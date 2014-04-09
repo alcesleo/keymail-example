@@ -33,9 +33,9 @@ describe MessagesController do
     end
 
     it 'shows error on fail' do
-      post :create, message: Factory.attributes_for(:message, text: '')
-
+      skip
       # TODO: implement error messages
+      post :create, message: Factory.attributes_for(:message, text: '')
     end
 
     it 'sets the current user on the message'
