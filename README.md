@@ -53,5 +53,13 @@ The seeds file generates a bunch of crap to play with:
 
 ## Deploying
 
-TODO
+```bash
+# first time you need to create the app
+# this will live at name_of_my_app.herokuapp.com
+heroku create name_of_my_app --addons heroku-postgresql
+
+# upload the app and run the migrations
+git push heroku master
+heroku run rake db:migrate
+```
 
