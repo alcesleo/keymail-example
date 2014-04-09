@@ -3,4 +3,6 @@ class Message < ActiveRecord::Base
 
   validates_presence_of :user
   validates_presence_of :text
+
+  delegate :email, to: :user, prefix: true
 end

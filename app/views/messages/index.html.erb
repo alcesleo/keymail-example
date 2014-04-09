@@ -1,0 +1,11 @@
+<h1>Messages</h1>
+
+<% @messages.each do |message| %>
+    <div>
+        <p><%= message.text %></p>
+        <aside>
+            By <%= message.user_email %>
+            at <%= time_tag(message.created_at) %>
+        </aside>
+    </div>
+<% end %>
