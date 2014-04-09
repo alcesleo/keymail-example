@@ -45,4 +45,4 @@ class ControllerSpec < Minitest::Spec
     @routes = Rails.application.routes
   end
 end
-MiniTest::Spec.register_spec_type(/Controller$/, ControllerSpec)
+Minitest::Spec.register_spec_type(/Controller$/, ControllerSpec)
