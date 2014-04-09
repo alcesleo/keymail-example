@@ -13,8 +13,11 @@ Turn.config.natural = true
 
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
+end
 
-  # Add more helper methods to be used by all tests here...
+class Minitest::Spec
+  include ActiveSupport::Testing::Assertions # assert_difference etc...
+  include ActiveSupport::Testing::SetupAndTeardown # before, after
 end
 
 module Minitest::Assertions
@@ -25,8 +28,17 @@ module Minitest::Assertions
 end
 ActiveRecord::Base.infect_an_assertion :assert_has_invalid, :must_have_invalid
 
-include ActiveSupport::Testing::Assertions
 class Proc
   infect_an_assertion :assert_difference, :must_change
   infect_an_assertion :assert_no_difference, :wont_change
 end
+
+class ControllerSpec < Minitest::Spec
+  include Rails.application.routes.url_helpers
+  include ActionController::TestCase::Behavior
+
+  before do
+    @routes = Rails.application.routes
+  end
+end
+MiniTest::Spec.register_spec_type(/Controller$/, ControllerSpec)
