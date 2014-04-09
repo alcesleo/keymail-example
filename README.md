@@ -1,6 +1,6 @@
 # Keymail Example [![Build Status](https://travis-ci.org/alcesleo/keymail-example.svg?branch=dev)](https://travis-ci.org/alcesleo/keymail-example)
 
-**This is an example application built with [keymail](https://github.com/alcesleo/keymail).**
+**This is an [example application](http://keymail-example.herokuapp.com/) built with [keymail](https://github.com/alcesleo/keymail).**
 
 It is a simple message board with _login via email_ functionality, it is heavily
 influensed by <https://nomorepasswordsjustemail.meteor.com/> but using Rails.
