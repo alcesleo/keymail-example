@@ -14,9 +14,10 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'minitest'
+  gem 'minifacture'
+  gem 'faker'
 end
 
 group :test do
   gem 'turn'
-  gem 'minifacture'
 end
