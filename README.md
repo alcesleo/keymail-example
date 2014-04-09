@@ -39,6 +39,12 @@ is the command you need to run again to **start the postgres server:**
 
     pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
 
+### Dummy data
+
+The seeds file generates a bunch of crap to play with:
+
+    rake db:seed
+
 - setup figaro
 
 ## Testing
