@@ -7,6 +7,11 @@ describe MessagesController do
       assigns(:messages).wont_be_nil
     end
 
+    it 'assigns new_message' do
+      get :index
+      assigns(:new_message).wont_be_nil
+    end
+
     it 'places new messages first' do
       last = Factory :message, created_at: 20.minutes.ago
       first = Factory :message
@@ -21,6 +26,19 @@ describe MessagesController do
     it 'creates a message' do
       -> { post :create, message: { text: 'Texty text' } }.must_change 'Message.count', +1
     end
+
+    it 'redirects to root on success' do
+      post :create, message: Factory.attributes_for(:message)
+      assert_redirected_to root_path
+    end
+
+    it 'shows error on fail' do
+      post :create, message: Factory.attributes_for(:message, text: '')
+
+      # TODO: implement error messages
+    end
+
+    it 'sets the current user on the message'
   end
 
   context '#delete' do

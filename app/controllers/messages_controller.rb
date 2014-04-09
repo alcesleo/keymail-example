@@ -4,6 +4,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = Message.order(created_at: :desc)
+    @new_message = Message.new
   end
 
   def create

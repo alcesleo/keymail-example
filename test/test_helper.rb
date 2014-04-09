@@ -46,3 +46,11 @@ class ControllerSpec < Minitest::Spec
   end
 end
 Minitest::Spec.register_spec_type(/Controller$/, ControllerSpec)
+
+class Minifacture
+  class << self
+    def attributes_for(name, attrs={})
+      build(name, attrs).attributes
+    end
+  end
+end
