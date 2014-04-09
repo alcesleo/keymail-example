@@ -21,3 +21,5 @@ end
 group :test do
   gem 'turn'
 end
+
+gem 'rails_12factor', group: :production
