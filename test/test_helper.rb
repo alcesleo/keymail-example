@@ -18,6 +18,10 @@ end
 class Minitest::Spec
   include ActiveSupport::Testing::Assertions # assert_difference etc...
   include ActiveSupport::Testing::SetupAndTeardown # before, after
+
+  class << self
+    alias_method :context, :describe
+  end
 end
 
 module Minitest::Assertions
