@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.user = User.first # FIXME: use current_user
+    @message.user = User.create(email: 'NOT A REAL USER')# FIXME: use current_user
     @message.save!
     redirect_to root_path
   end

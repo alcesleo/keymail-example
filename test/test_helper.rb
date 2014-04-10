@@ -11,6 +11,9 @@ require 'turn'
 Turn.config.format = :outline
 Turn.config.natural = true
 
+require 'database_cleaner'
+DatabaseCleaner.strategy = :transaction
+
 class ActiveSupport::TestCase
   ActiveRecord::Migration.check_pending!
 end
@@ -22,6 +25,10 @@ class Minitest::Spec
   class << self
     alias_method :context, :describe
   end
+
+  before { DatabaseCleaner.start }
+  after { DatabaseCleaner.clean }
+
 end
 
 module Minitest::Assertions

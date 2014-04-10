@@ -13,12 +13,12 @@ describe MessagesController do
     end
 
     it 'places new messages first' do
+      # created in this order to make sure it fails if Message.all is used
       last = Factory :message, created_at: 20.minutes.ago
       first = Factory :message
 
       get :index
-      assigns(:messages).first.must_equal first
-      assigns(:messages).last.must_equal last
+      assigns(:messages).must_equal [first, last]
     end
   end
 
