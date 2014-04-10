@@ -3,7 +3,7 @@ class MessagesController < ApplicationController
   # TODO: authentication
 
   def index
-    @messages = Message.order(created_at: :desc)
+    @messages = Message.order(created_at: :desc).page(params[:page])
     @new_message = Message.new
   end
 
