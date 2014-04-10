@@ -17,11 +17,11 @@ gem 'kaminari'
 
 group :development, :test do
   gem 'minitest'
-  gem 'minifacture'
-  gem 'faker'
 end
 
 group :test do
+  gem 'minifacture'
+  gem 'faker'
   gem 'database_cleaner'
   gem 'turn'
 end
