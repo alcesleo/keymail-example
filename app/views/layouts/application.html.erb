@@ -8,6 +8,12 @@
 </head>
 <body>
 
+<h1>Keymail example</h1>
+
+<% flash.each do |type, message| %>
+    <div class="<%= type %>"><%= message %></div>
+<% end %>
+
 <%= yield %>
 
 </body>

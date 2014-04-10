@@ -9,8 +9,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.user = User.create(email: 'NOT A REAL USER')# FIXME: use current_user
-    @message.save!
+    @message.user = User.where(email: 'NOT A REAL USER').first_or_create # FIXME: use current_user
+
+    if @message.save
+      flash[:notice] = 'Message successfully posted!'
+    else
+      # TODO: should use real error messages, but there really isn't much else that can happen
+      flash[:error] = 'Message cannot be empty.'
+    end
     redirect_to root_path
   end
 

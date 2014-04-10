@@ -23,19 +23,21 @@ describe MessagesController do
   end
 
   context '#create' do
+
     it 'creates a message' do
       -> { post :create, message: { text: 'Texty text' } }.must_change 'Message.count', +1
     end
 
-    it 'redirects to root on success' do
-      post :create, message: Factory.attributes_for(:message)
+    it 'flashes when posting a message' do
+      post :create, message: { text: 'A message' }
       assert_redirected_to root_path
+      flash[:notice].wont_be_nil
     end
 
-    it 'shows error on fail' do
-      skip
-      # TODO: implement error messages
-      post :create, message: Factory.attributes_for(:message, text: '')
+    it 'flashes error on fail' do
+      post :create, message: { text: '' }
+      assert_redirected_to root_path
+      flash[:error].wont_be_nil
     end
 
     it 'sets the current user on the message'
