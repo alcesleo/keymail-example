@@ -5,4 +5,8 @@ class Message < ActiveRecord::Base
   validates_presence_of :text
 
   delegate :email, to: :user, prefix: true
+
+  def self.newest_first
+    order(created_at: :desc)
+  end
 end
