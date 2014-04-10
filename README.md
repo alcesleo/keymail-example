@@ -49,7 +49,13 @@ The seeds file generates a bunch of crap to play with:
 
 ## Testing
 
-    rake test
+```bash
+# run the tests
+rake test
+```
+
+Here's a useful [cheat sheet](http://cheat.errtheblog.com/s/minitest) of the matchers you can use.
+
 
 ## Deploying
 
