@@ -1,0 +1,9 @@
+<% if @new_message.errors.any? %>
+    <% @new_message.errors.full_messages.each do |msg| %>
+        <span class="error"><%= msg %></span>
+    <% end %>
+<% end %>
+
+<%= form_for @new_message do |f| %>
+    <%= f.text_field :text, placeholder: 'Your message' %>
+<% end %>

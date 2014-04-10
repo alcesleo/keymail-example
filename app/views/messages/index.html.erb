@@ -1,8 +1,6 @@
 <h1>Messages</h1>
 
-<%= form_for @new_message do |f| %>
-    <%= f.text_field :text, placeholder: 'Your message' %>
-<% end %>
+<%= render 'form' %>
 
 <% @messages.each do |message| %>
     <div>
