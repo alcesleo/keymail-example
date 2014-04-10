@@ -20,6 +20,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'simplecov', '~> 0.7.1', require: false
   gem 'minifacture'
   gem 'faker'
   gem 'database_cleaner'
