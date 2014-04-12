@@ -6,7 +6,6 @@ class Message < ActiveRecord::Base
 
   delegate :email, to: :user, prefix: true
 
-  def self.newest_first
-    order(created_at: :desc)
-  end
+  scope :newest_first, -> { order(created_at: :desc) }
+
 end
