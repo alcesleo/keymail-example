@@ -2,11 +2,11 @@
 
 <% @messages.each do |message| %>
   <div class="well clearfix">
-    <p class="pull-left"><i class="fa fa-comment"></i> <%= message.text %></p>
+    <p class="pull-left"><span class="glyphicon glyphicon-comment"></span> <%= message.text %></p>
 
       <aside class="pull-right">
-        <i class="fa fa-user"></i> <%= message.user_email %> |
-        <i class="fa fa-clock-o"></i> <%= time_tag(message.created_at) %>
+        <span class="glyphicon glyphicon-user"></span> <%= message.user_email %> |
+        <span class="glyphicon glyphicon-time"></span> <%= time_tag(message.created_at) %>
       </aside>
   </div>
 <% end %>
