@@ -1,13 +1,14 @@
 <%= render 'form' %>
 
 <% @messages.each do |message| %>
-    <div>
-        <p><%= message.text %></p>
-        <aside>
-            By <%= message.user_email %>
-            at <%= time_tag(message.created_at) %>
-        </aside>
-    </div>
+  <div class="well clearfix">
+    <p class="pull-left"><i class="fa fa-comment"></i> <%= message.text %></p>
+
+      <aside class="pull-right">
+        <i class="fa fa-user"></i> <%= message.user_email %> |
+        <i class="fa fa-clock-o"></i> <%= time_tag(message.created_at) %>
+      </aside>
+  </div>
 <% end %>
 
 <%= paginate @messages %>
