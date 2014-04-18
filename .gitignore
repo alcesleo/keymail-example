@@ -17,3 +17,6 @@
 
 # Coverage reports
 /coverage
+
+# Secret passwords
+/config/application.yml

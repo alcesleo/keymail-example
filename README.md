@@ -39,6 +39,15 @@ is the command you need to run again to **start the postgres server:**
 
     pg_ctl start -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log
 
+### Setup mailing
+
+The `config/initializers/setup_mail.rb` relies on [Figaro](https://github.com/laserlemon/figaro) for
+the password, you can set it by creating a `config/application.yml` file with this content:
+
+```yaml
+EMAIL_PASSWORD: "YOUR_PASSWORD"
+```
+
 ### Dummy data
 
 The seeds file generates a bunch of crap to play with:

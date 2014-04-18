@@ -19,6 +19,9 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
+# protect email password
+gem 'figaro'
+
 # Pagination
 gem 'kaminari'
 
