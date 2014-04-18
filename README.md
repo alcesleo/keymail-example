@@ -54,8 +54,6 @@ The seeds file generates a bunch of crap to play with:
 
     rake db:seed
 
-- setup figaro
-
 ## Testing
 
 ```bash
