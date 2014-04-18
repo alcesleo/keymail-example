@@ -1,3 +1,9 @@
+PATH
+  remote: ../keymail
+  specs:
+    keymail (0.1.0)
+      rails (~> 4.0.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -124,6 +130,7 @@ DEPENDENCIES
   faker
   kaminari
   kaminari-bootstrap (~> 3.0.1)
+  keymail!
   minifacture
   minitest
   pg
