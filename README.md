@@ -42,11 +42,14 @@ is the command you need to run again to **start the postgres server:**
 ### Setup mailing
 
 The `config/initializers/setup_mail.rb` relies on [Figaro](https://github.com/laserlemon/figaro) for
-the password, you can set it by creating a `config/application.yml` file with this content:
+the email credentials, you can set it up by creating a `config/application.yml` file with this content:
 
 ```yaml
-EMAIL_PASSWORD: "YOUR_PASSWORD"
+EMAIL_USERNAME: "your_gmail_username"
+EMAIL_PASSWORD: "your_gmail_password"
 ```
+
+To use something other than Gmail you need to change the settings in `config/initializers/setup_mail.rb` manually.
 
 ### Dummy data
 
