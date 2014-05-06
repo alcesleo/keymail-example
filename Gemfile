@@ -3,12 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
-# Dynamic loading of keymail
-if File.directory? '../keymail'
-  gem 'keymail', path: '../keymail'
-else
-  gem 'keymail'
-end
+gem 'keymail'
 
 gem 'pg'
 gem 'thin'
