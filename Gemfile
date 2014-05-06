@@ -23,6 +23,7 @@ gem 'kaminari'
 
 group :test do
   gem 'minitest'
+  gem 'mocha'
   gem 'capybara_minitest_spec'
   gem 'capybara-email'
   gem 'simplecov', '~> 0.7.1', require: false

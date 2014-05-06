@@ -8,6 +8,7 @@ require 'minitest/autorun'
 require 'minitest/spec'
 require 'rails/test_help'
 require 'factories'
+require 'mocha/mini_test'
 
 require 'turn'
 # :outline, :progress, :dotted, :pretty, :marshal, :cue
