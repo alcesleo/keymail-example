@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.4'
 
+# Dynamic loading of keymail
 if File.directory? '../keymail'
   gem 'keymail', path: '../keymail'
 else
@@ -25,11 +26,10 @@ gem 'figaro'
 # Pagination
 gem 'kaminari'
 
-group :development, :test do
-  gem 'minitest'
-end
-
 group :test do
+  gem 'minitest'
+  gem 'capybara_minitest_spec'
+  gem 'capybara-email'
   gem 'simplecov', '~> 0.7.1', require: false
   gem 'minifacture'
   gem 'faker'
