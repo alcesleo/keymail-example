@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  # TODO: authentication
+  before_filter :authorize!, except: [:index]
 
   def index
     @messages = Message.newest_first.page(params[:page])
@@ -9,7 +9,7 @@ class MessagesController < ApplicationController
 
   def create
     @message = Message.new(message_params)
-    @message.user = User.where(email: 'NOT A REAL USER').first_or_create # FIXME: use current_user
+    @message.user = current_user
 
     if @message.save
       flash[:notice] = 'Message successfully posted!'

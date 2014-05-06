@@ -53,7 +53,7 @@ describe SessionsController do
       end
 
     end
-  
+
     context 'unsuccessful login' do
       before do
         get :verify_link, { url_key: 'invalid' }

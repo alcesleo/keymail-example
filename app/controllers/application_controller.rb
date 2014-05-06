@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by(auth_token: cookies[:auth_token]) if cookies[:auth_token]
   end
+  helper_method :current_user
+
+  def authorize!
+    head :unauthorized if current_user.nil?
+  end
 end

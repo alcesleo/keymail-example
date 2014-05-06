@@ -22,33 +22,53 @@ describe MessagesController do
     end
   end
 
+  def log_in
+    @user = Factory.build :user
+    @controller.stubs(:current_user).returns(@user)
+  end
+
   context '#create' do
+    context 'logged in' do
+      before { log_in }
 
-    it 'creates a message' do
-      -> { post :create, message: { text: 'Texty text' } }.must_change 'Message.count', +1
+      it 'creates a message' do
+        -> { post :create, message: { text: 'Texty text' } }.must_change 'Message.count', +1
+      end
+
+      it 'flashes when posting a message' do
+        post :create, message: { text: 'A message' }
+        assert_redirected_to root_path
+        flash[:notice].wont_be_nil
+      end
+
+      it 'flashes error on fail' do
+        post :create, message: { text: '' }
+        assert_redirected_to root_path
+        flash[:error].wont_be_nil
+      end
+
+      it 'sets the current user on the message' do
+         post :create, message: { text: 'A message' }
+         assigns(:message).user.must_equal @user
+      end
+
     end
 
-    it 'flashes when posting a message' do
-      post :create, message: { text: 'A message' }
-      assert_redirected_to root_path
-      flash[:notice].wont_be_nil
+    it 'denies posting without being logged in' do
+      -> { post :create, message: { text: 'A message' } }.wont_change 'Message.count'
     end
-
-    it 'flashes error on fail' do
-      post :create, message: { text: '' }
-      assert_redirected_to root_path
-      flash[:error].wont_be_nil
-    end
-
-    it 'sets the current user on the message'
   end
 
   context '#delete' do
     it 'deletes a message' do
+      log_in
       message = Factory :message
       -> { delete :destroy, id: message.id }.must_change 'Message.count', -1
     end
 
-    it 'only deletes owned messages'
+    it 'only deletes owned messages' do
+      message = Factory :message
+      -> { delete :destroy, id: message.id }.wont_change 'Message.count'
+    end
   end
 end
