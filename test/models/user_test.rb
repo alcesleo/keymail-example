@@ -14,4 +14,9 @@ describe User do
 
     duplicate.must_have_invalid :email
   end
+
+  it 'generates an auth token on creation' do
+    user = Factory :user
+    user.auth_token.wont_be_nil
+  end
 end
