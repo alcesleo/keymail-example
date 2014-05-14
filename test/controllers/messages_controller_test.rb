@@ -22,14 +22,12 @@ describe MessagesController do
     end
   end
 
-  def log_in
-    @user = Factory.build :user
-    @controller.stubs(:current_user).returns(@user)
-  end
 
   context '#create' do
     context 'logged in' do
-      before { log_in }
+      before do
+        @user = log_in
+      end
 
       it 'creates a message' do
         -> { post :create, message: { text: 'Texty text' } }.must_change 'Message.count', +1

@@ -75,3 +75,8 @@ class AcceptanceSpec < MiniTest::Spec
 end
 MiniTest::Spec.register_spec_type(/Integration$/, AcceptanceSpec)
 
+def log_in(user = nil)
+  user = Factory.build :user
+  MessagesController.any_instance.stubs(:current_user).returns(user)
+  user
+end
