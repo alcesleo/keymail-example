@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def send_keymail
     Keymail::Authentication.request(params[:email])
+    flash[:success] = "An email has been sent to #{params[:email]}, click the link in the email to log in."
     redirect_to root_path
   end
 

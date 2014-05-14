@@ -15,6 +15,17 @@ describe SessionsController do
     it 'redirects to root' do
       assert_redirected_to root_path
     end
+
+    it 'sets a flash on success' do
+      flash[:success].wont_be_nil
+      flash[:error].must_be_nil
+    end
+
+    it 'sets a flash on error' do
+      skip # mock ActionMailer error?
+      flash[:error].wont_be_nil
+      flash[:success].must_be_nil
+    end
   end
 
 
