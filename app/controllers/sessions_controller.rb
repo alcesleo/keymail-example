@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
 
   def send_keymail
-    Keymail::Authentication.request(params[:email])
-    flash[:notice] = "An email has been sent to #{params[:email]}, click the link in the email to log in."
+    begin
+      Keymail::Authentication.request(params[:email])
+      flash[:notice] = "An email has been sent to #{params[:email]}, click the link in the email to log in."
+    rescue
+      flash[:error] = "Something went wrong when trying to send keymail."
+    end
     redirect_to root_path
   end
 

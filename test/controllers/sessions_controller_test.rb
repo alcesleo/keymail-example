@@ -2,7 +2,13 @@ require 'test_helper'
 
 describe SessionsController do
 
-  context '#send_keymail' do
+  it 'handles not being able to send emails' do
+    Keymail::Authentication.stubs(:request).raises
+    post :send_keymail, { email: 'test@email.com' }
+    flash[:error].wont_be_nil
+    flash[:notice].must_be_nil
+    assert_redirected_to root_path
+  end
     before do
       ActionMailer::Base.deliveries.clear
       post :send_keymail, { email: 'test@email.com' }
