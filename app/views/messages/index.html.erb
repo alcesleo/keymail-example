@@ -1,4 +1,6 @@
-<%= render 'form' %>
+<% if current_user %>
+  <%= render 'form' %>
+<% end %>
 
 <% @messages.each do |message| %>
   <div class="well clearfix">

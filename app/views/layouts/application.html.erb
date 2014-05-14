@@ -15,6 +15,10 @@
     <div class="<%= flash_class(type) %>"><%= message %></div>
   <% end %>
 
+  <% unless current_user %>
+    <%= render 'shared/authentication_form' %>
+  <% end %>
+
   <%= yield %>
 </div>
 
