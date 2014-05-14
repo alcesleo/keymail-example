@@ -9,6 +9,8 @@ describe SessionsController do
     flash[:notice].must_be_nil
     assert_redirected_to root_path
   end
+
+  context 'sending emails' do
     before do
       ActionMailer::Base.deliveries.clear
       post :send_keymail, { email: 'test@email.com' }
@@ -26,16 +28,10 @@ describe SessionsController do
       flash[:notice].wont_be_nil
       flash[:error].must_be_nil
     end
-
-    it 'sets a flash on error' do
-      skip # mock ActionMailer error?
-      flash[:error].wont_be_nil
-      flash[:notice].must_be_nil
-    end
   end
 
 
-  context '#verify_link' do
+  context 'logging in via link' do
 
     let(:email) { 'text@email.com' }
     let(:url_key) { Keymail::Authentication.request(email).url_key } # FIXME: ugly..
@@ -83,7 +79,7 @@ describe SessionsController do
     end
   end
 
-  context '#log_out' do
+  context 'logging out' do
     it 'logs out the user' do
       log_in
       get :log_out
