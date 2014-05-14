@@ -76,4 +76,12 @@ describe SessionsController do
       end
     end
   end
+
+  context '#log_out' do
+    it 'logs out the user' do
+      log_in
+      get :log_out
+      cookies[:auth_token].must_be_nil
+    end
+  end
 end

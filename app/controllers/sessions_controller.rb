@@ -19,6 +19,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def log_out
+    cookies.delete(:auth_token)
+    flash[:notice] = 'Logged out successfully'
+    redirect_to root_path
+  end
+
   private
 
   def login_or_register_user(email)
