@@ -17,14 +17,14 @@ describe SessionsController do
     end
 
     it 'sets a flash on success' do
-      flash[:success].wont_be_nil
+      flash[:notice].wont_be_nil
       flash[:error].must_be_nil
     end
 
     it 'sets a flash on error' do
       skip # mock ActionMailer error?
       flash[:error].wont_be_nil
-      flash[:success].must_be_nil
+      flash[:notice].must_be_nil
     end
   end
 
@@ -58,9 +58,9 @@ describe SessionsController do
         @controller.current_user.email.must_equal email
       end
 
-      it 'redirects to root with a flash on success' do
+      it 'redirects to root with a flash on login success' do
         assert_redirected_to root_path
-        flash[:notice].wont_be_nil
+        flash[:success].wont_be_nil
       end
 
     end

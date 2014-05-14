@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def send_keymail
     Keymail::Authentication.request(params[:email])
-    flash[:success] = "An email has been sent to #{params[:email]}, click the link in the email to log in."
+    flash[:notice] = "An email has been sent to #{params[:email]}, click the link in the email to log in."
     redirect_to root_path
   end
 
@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
 
     if result.authenticated?
       login_or_register_user(result.email)
-      flash[:notice] = 'Successfully logged in'
+      flash[:success] = 'Successfully logged in'
       redirect_to root_path
     else
       flash[:error] = 'Login failed'
