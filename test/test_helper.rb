@@ -65,3 +65,13 @@ class Minifacture
     end
   end
 end
+
+# Set up Capybara
+require 'capybara/rails'
+class AcceptanceSpec < MiniTest::Spec
+  include Rails.application.routes.url_helpers
+  include Capybara::DSL
+  include Capybara::Email::DSL
+end
+MiniTest::Spec.register_spec_type(/Integration$/, AcceptanceSpec)
+
