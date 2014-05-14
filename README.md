@@ -66,16 +66,25 @@ rake test
 
 Here's a useful [cheat sheet](http://cheat.errtheblog.com/s/minitest) of the matchers you can use.
 
-
 ## Deploying
 
 ```bash
 # first time you need to create the app
-# this will live at name_of_my_app.herokuapp.com
-heroku create name_of_my_app --addons heroku-postgresql
+heroku create keymail-example --addons heroku-postgresql # http://keymail-example.herokuapp.com/
 
-# upload the app and run the migrations
+# upload the app
 git push heroku master
+
+# run the migrations
 heroku run rake db:migrate
+
+# update your credentials from application.yml
+rake figaro:heroku[keymail-example]
 ```
+
+Note: GMail may block Heroku from accessing your account, even if it is with
+the correct credentials, (raising a `Net::SMTPAuthenticationError`). To fix
+this problem you need to log in to the GMail account and then visit
+<http://www.google.com/accounts/DisplayUnlockCaptcha> to open the account up
+for new devices.
 
