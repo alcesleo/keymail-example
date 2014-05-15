@@ -1,4 +1,4 @@
-# Keymail Example [![Build Status](https://travis-ci.org/alcesleo/keymail-example.svg?branch=dev)](https://travis-ci.org/alcesleo/keymail-example)
+# Keymail Example [![Build Status](https://travis-ci.org/alcesleo/keymail-example.svg?branch=master)](https://travis-ci.org/alcesleo/keymail-example)
 
 **This is an [example application](http://keymail-example.herokuapp.com/) built with [keymail](https://github.com/alcesleo/keymail).**
 
