@@ -1,0 +1,7 @@
+<p><strong>Thanks for trying out <%= link_to 'Keymail', 'https://github.com/alcesleo/keymail' %>!</strong><p>
+
+<p>To log in, simply click this link:</p>
+
+<p><%= @token.url %></p>
+
+<p><i>This keymail is valid until <%= @token.expires_at %></i></p>
